@@ -1,0 +1,6 @@
+mysite/secrets.py
+venv/
+*.pyc
+*.log
+*.pot
+__pycache__/
