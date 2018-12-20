@@ -1,0 +1,14 @@
+{% extends 'asian_studies_books/base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+  <form method="post">
+    {% csrf_token %}
+    <p>Are you sure you want to delete the Book, "{{ book.full_title }}"?</p>
+    <button type="submit" class="btn btn-outline-danger">Delete</button>
+    &nbsp;<a class="btn btn-outline-secondary" href="{% url 'book_detail' book.pk %}">Cancel</a>
+  </form>
+
+{% endblock content %}
