@@ -1,0 +1,12 @@
+{% extends 'asian_studies_books/base.html' %}
+
+{% block content %}
+
+  <header>
+    <h2>Asian Studies Books Project Logout Page</h2>
+  </header>
+
+  <h2>Login</h2>
+  <a href="{% url 'social:begin' 'google-oauth2' %}">Login with Google</a><br>
+
+{% endblock content %}

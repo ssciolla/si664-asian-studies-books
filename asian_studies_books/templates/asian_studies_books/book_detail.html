@@ -1,0 +1,106 @@
+{% extends 'asian_studies_books/base.html' %}
+
+<!-- safe filter on for raw HTML stored in database -->
+{% block content %}
+ <header>
+   <div class="row">
+     <div class="col-sm-10">
+       <h2>{{ book.full_title | safe }}</h2>
+     </div>
+     <!-- update and delete buttons go here! -->
+   </div>
+ </header>
+
+  {% if book.creators %}
+     <div class="row">
+       <div class="col-sm-2">
+         <p>Creator(s)</p>
+       </div>
+       <div class="col-sm-10">
+         <p>{{ book.display_creators }}</p>
+       </div>
+     </div>
+  {% endif %}
+
+  {% if book.key_note %}
+     <div class="row">
+       <div class="col-sm-2">
+         <p>Keynote</p>
+       </div>
+       <div class="col-sm-10">
+         <p>{{ book.key_note | safe }}</p>
+       </div>
+     </div>
+  {% endif %}
+
+  {% if book.description %}
+   <div class="row">
+     <div class="col-sm-2">
+       <p>Description</p>
+     </div>
+     <div class="col-sm-10">
+       <p>{{ book.description | safe }}</p>
+     </div>
+   </div>
+  {% endif %}
+
+  {% if book.pages %}
+   <div class="row">
+     <div class="col-sm-2">
+       <p>Pages</p>
+     </div>
+     <div class="col-sm-10">
+       <p>{{ book.pages }}</p>
+     </div>
+   </div>
+  {% endif %}
+
+  {% if book.series %}
+   <div class="row">
+     <div class="col-sm-2">
+       <p>Series</p>
+     </div>
+     <div class="col-sm-10">
+       <p>{{ book.series }}</p>
+     </div>
+   </div>
+  {% endif %}
+
+  {% if book.volume %}
+   <div class="row">
+     <div class="col-sm-2">
+       <p>Volume</p>
+     </div>
+     <div class="col-sm-10">
+       <p>{{ book.volume }}</p>
+     </div>
+   </div>
+  {% endif %}
+
+
+  <div class="row">
+   <div class="col-sm-10">
+     <h3>Versions</h3>
+   </div>
+  </div>
+
+  <!-- {% if book.display_versions %}
+    <div class="row">
+      <div class="col-sm-2">
+        <p>{{ book.display_versions }}</p>
+      </div>
+    </div>
+  {% endif %} -->
+
+
+  {% if book.display_versions %}
+    {% for version in book.display_versions %}
+      <div class="row">
+        <div class="col-sm-2">
+          <p>{{ version }}</p>
+        </div>
+      </div>
+    {% endfor %}
+  {% endif %}
+
+{% endblock content %}
