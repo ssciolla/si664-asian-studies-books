@@ -127,7 +127,7 @@ class Book(models.Model):
     series = models.ForeignKey('Series', models.CASCADE, blank=True, null=True)
 
     creators = models.ManyToManyField(Creator, through='Attribution')
-    institutions = models.ManyToManyField(Institution, through='Holding')
+    institutions = models.ManyToManyField(Institution, through='Holding', blank=True, null=True)
 
     class Meta:
         managed = False
@@ -165,11 +165,10 @@ class Book(models.Model):
             version_strings.append(version_string)
         return version_strings
 
+    def get_absolute_url(self):
+        return reverse('book_detail', kwargs={'pk': self.pk})
+
     # Choosing not to create an equivalent method for institutions (there are too many!)
-
-    # def get_absolute_url(self):
-    #     return reverse('site_detail', kwargs={'pk': self.pk})
-
 
 class Holding(models.Model):
     holding_id = models.AutoField(primary_key=True)
