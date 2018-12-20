@@ -1,0 +1,21 @@
+{% extends 'asian_studies_books/base.html' %}
+
+{% block content %}
+
+  <header>
+    <h2>Asian Studies Books Project Login</h2>
+  </header>
+
+  <p>Connect with a social network:</p>
+
+  <a href="{% url 'social:begin' 'google-oauth2' %}">Sign in with Google</a>
+  <p>&nbsp;</p>
+  <p>Sign in with your email address and password:</p>
+
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-outline-success">Sign in</button>
+  </form>
+
+{% endblock content %}

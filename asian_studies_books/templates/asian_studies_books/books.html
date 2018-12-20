@@ -1,0 +1,30 @@
+{% extends 'asian_studies_books/base.html' %}
+
+{% block content %}
+
+<article>
+  <header>
+    <div class="row">
+      <div class="col-sm-11">
+        <h2>Asian Studies Books Project Titles</h2>
+      </div>
+      <!-- site new button goes here -->
+    </div>
+  </header>
+
+  {% include 'asian_studies_books/pagination.html' %}
+
+  {% if books %}
+  <ul>
+    {% for book in books %}
+    <!-- safe filter on for raw HTML stored in database -->
+    <li><a href="{% url 'book_detail' book.pk %}">{{ book.full_title }}</a></li>
+    {% endfor %}
+  </ul>
+  {% else %}
+  <p>There are no more titles to view.</p>
+  {% endif %}
+
+</article>
+
+{% endblock content %}}
