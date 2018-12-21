@@ -1,0 +1,35 @@
+{% extends 'asian_studies_books/base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+  <h3>Asian Studies Books Project Titles</h3>
+
+  <div class="row">
+    <div class="col-sm-3">
+      <div class="px-2 py-2" style="border:1px solid #8E8D8A;">
+        <form action="" method="get">
+          {{ filter.form|crispy }}
+          <!-- add a submit button -->
+          <button type="submit" class="btn btn-outline-success">Filter</button>
+        </form>
+      </div>
+    </div>
+    <div class="col-sm-9">
+      {% for book in object_list %}
+        <!-- add a link to the detail page -->
+        <h4><a href="{% url 'book_detail' book.pk %}">{{ book.full_title | safe }}</a></h4>
+          <!-- add the country_area_names and description template tags -->
+          {% if book.display_creators %}
+            <p>{{ book.display_creators }}</p>
+          {% endif %}
+          {% if book.key_note %}
+            {{ book.key_note | safe }}
+          {% endif %}
+          <p></p>
+      {% empty %}
+        Select one or more filters relevant to your search and then click "Filter".
+      {% endfor %}
+    </div>
+  </div>
+{% endblock content %}
