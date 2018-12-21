@@ -65,7 +65,7 @@ INSERT IGNORE INTO series (series_name) VALUES
 ('Michigan Papers on South and Southeast Asia'),
 ('Michigan Series in South and Southeast Asian Languages and Linguistics'),
 ('Michigan Studies in Buddhist Literature'),
-('"Science, Medicine, and Technology in East Asia"'),
+('Science, Medicine, and Technology in East Asia'),
 ('Studies of South and Southeast Asia');
 
 --

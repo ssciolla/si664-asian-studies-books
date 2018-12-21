@@ -112,7 +112,6 @@ class Series(models.Model):
     def __str__(self):
         return self.series_name
 
-
 class Book(models.Model):
     book_id = models.AutoField(primary_key=True)
     title = models.CharField(max_length=200)
@@ -127,7 +126,7 @@ class Book(models.Model):
     series = models.ForeignKey('Series', models.CASCADE, blank=True, null=True)
 
     creators = models.ManyToManyField(Creator, through='Attribution')
-    institutions = models.ManyToManyField(Institution, through='Holding', blank=True, null=True)
+    institutions = models.ManyToManyField(Institution, through='Holding', blank=True)
 
     class Meta:
         managed = False
@@ -138,6 +137,7 @@ class Book(models.Model):
     def __str__(self):
         return self.full_title
 
+    @property
     def display_creators(self):
         """Create a string for creators. This is required to display in the Admin view."""
         attributions = self.attributions.select_related('creator', 'book', 'role')
@@ -150,6 +150,7 @@ class Book(models.Model):
             attribution_strings.append(attribution_string)
         return ', '.join(attribution_strings)
 
+    @property
     def display_versions(self):
         versions = self.versions.all()
         version_strings = []

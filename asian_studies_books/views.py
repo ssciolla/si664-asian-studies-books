@@ -2,13 +2,15 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse, HttpResponseRedirect
 from django.views import generic
 from django.urls import reverse, reverse_lazy
+from django.db.models import F, Q
 
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
+from django_filters.views import FilterView
 
 from .forms import BookForm
 from .models import Book, Creator, Attribution, Holding, Institution
-from django.db.models import F, Q
+from .filters import BookFilter
 
 # Create your views here.
 
@@ -32,6 +34,31 @@ class BookDetailView(generic.DetailView):
     model = Book
     context_object_name = 'book'
     template_name = 'asian_studies_books/book_detail.html'
+
+## Note to Anthony: I tried to implement this, but when I did, my filter fields disappeared on the sidebar.
+## I could not figure out why, so I moved on.
+
+# # Taken from Anthony Whyte's heritagesites/views.py:
+# # https://github.com/UMSI-SI664-2018Fall/heritagesites/blob/master/heritagesites/views.py
+# class PaginatedFilterView(generic.View):
+#     """
+#     Creates a view mixin, which separates out defaut 'page' keyword and returns the
+#     remaining quertystring as a new template context variable.
+#     https://stackoverflow.com/questions/51389848/how-can-i-use-pagination-with-django-filter
+#     """
+#     def get_context_data(self, **kwargs):
+#         context = super(PaginatedFilterView, self).get_context_data(**kwargs)
+#         if self.request.GET:
+#             querystring = self.request.GET.copy()
+#             if self.request.GET.get('page'):
+#                 del querystring['page']
+#             context['querystring'] = quertystring.urlencode()
+#             return context
+
+class BookFilterView(FilterView):
+    filterset_class = BookFilter
+    template_name = 'asian_studies_books/book_filter.html'
+    # paginate_by = 30
 
 @method_decorator(login_required, name='dispatch')
 class BookCreateView(generic.View):

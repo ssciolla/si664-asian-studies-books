@@ -16,7 +16,7 @@
 
     <link rel="stylesheet" href="{% static 'css/asian_studies_books.css' %}">
 
-    <title>{% block title %}HOB Asian Studies Books Project{% endblock title %}</title>
+    <title>{% block title %}Asian Studies Books Project{% endblock title %}</title>
   </head>
   <body>
 
@@ -27,6 +27,9 @@
         <ul class="navbar-nav">
           <li class="nav-item">
             <a class="nav-link" href="{% url 'books' %}">Books</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'books_filter' %}">Filter Search</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{% url 'about' %}">About</a>
