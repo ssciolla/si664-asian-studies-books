@@ -1,0 +1,11 @@
+################
+#   Database   #
+################
+
+mysql:
+  host: localhost
+  port: 3306
+  user: # User name goes here
+  passwd: # Password goes here
+  db: asian_studies_books
+  local_infile: True
