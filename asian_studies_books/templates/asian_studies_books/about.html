@@ -2,10 +2,12 @@
 
 {% block content %}
 
-<h2>About the Asian Studies Books Project and this site</h2>
-
-<p>For my final project in SI 664, I created this application that leverages a MySQL database backend and a Django framework frontend in order to allow users to discover the global and national reach of a set of Asian Studies publications. Originally released over the last several decades, these titles are under consideration by Michigan Publishing Services (part of the University of Michigan Library) for digitization and redistribution as open access publications. Ultimately, one hundred titles will be selected and published on the library's Fulcrum platform. The work is funded by a Humanities Open Book Grant from the National Endowment for the Humanitiies.</p>
-
-<p>The underlying data for this application is comprised of descriptive metadata for the approximately 350 books and additional data about which institutions worldwide have these books in their holdings. As part of an internship last summer, I gathered the library holdings data using the OCLC's WorldCat Search API, and I also assisted in putting together, checking, and enriching the existing descriptive metadata records. I have been given permission by Michigan Publishing Services to use this data for my project. The raw data for this project is in the form of multiple JSON files and another containing the results of API calls and technical details about how those calls were crafted.</p>
-
+  <h2>About the project and this site</h2>
+  <div class='row'>
+    <div class='column left'>
+      <p>For my final project in SI 664, I created this application that leverages a MySQL database backend and a Django framework frontend in order to allow users to discover the global and national reach of a set of Asian Studies publications. Originally released over the last several decades, these titles are under consideration by Michigan Publishing Services (part of the University of Michigan Library) for digitization and redistribution as open access publications. Ultimately, one hundred titles will be selected and published on the library's Fulcrum platform. The work is funded by a Humanities Open Book Grant from the National Endowment for the Humanitiies.</p>
+      <p>The underlying data for this application is comprised of descriptive metadata for the approximately 350 books and additional data about which institutions worldwide have these books in their holdings. As part of an internship last summer, I gathered the library holdings data using the OCLC's WorldCat Search API, and I also assisted in putting together, checking, and enriching the existing descriptive metadata records. I have been given permission by Michigan Publishing Services to use this data for my project. The raw data for this project is in the form of multiple JSON files and another containing the results of API calls and technical details about how those calls were crafted.</p>
+    </div>
+  </div>
+  
 {% endblock content %}

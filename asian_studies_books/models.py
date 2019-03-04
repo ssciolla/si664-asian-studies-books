@@ -166,10 +166,27 @@ class Book(models.Model):
             version_strings.append(version_string)
         return version_strings
 
+    @property
+    def display_total_institutions(self):
+        institutions = self.institutions.all()
+        total = str(len(institutions))
+        return total
+        # country_distribution = institutions.annotate(models.Count('country'))
+        # print(country_distribution)
+
+    def display_country_count_dict(self):
+        institutions = self.institutions.all()
+        country_dist = institutions.select_related('country')\
+                                   .values('country__country_name')\
+                                   .annotate(count = models.Count('country__country_id'))\
+                                   .order_by('-count')
+        count_tups = []
+        for country_count in country_dist:
+            count_tups.append((country_count['country__country_name'], country_count['count']))
+        return count_tups
+
     def get_absolute_url(self):
         return reverse('book_detail', kwargs={'pk': self.pk})
-
-    # Choosing not to create an equivalent method for institutions (there are too many!)
 
 class Holding(models.Model):
     holding_id = models.AutoField(primary_key=True)

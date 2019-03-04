@@ -70,7 +70,40 @@ main {
 
 .container-fluid {
     background-color: transparent;
+    margin-left: 5px;
+    margin-right: 5px;
     /* padding: 0.5rem 0.5rem; */
+}
+
+/*
+ * Columns
+ */
+
+.column {
+  float: left;
+  padding: 20px;
+}
+
+.left {
+  width: 66.7%
+}
+
+.right {
+  width: 33.3%;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+table, th, tr, td {
+  border: 1px solid black;
+}
+
+th, td {
+  padding: 3px;
+  text-align: center;
 }
 
 /*
