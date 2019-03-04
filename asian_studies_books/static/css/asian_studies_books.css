@@ -28,11 +28,13 @@ nav {
     color: rgba(255,255,255,.8);
     /* padding: 0.8rem 1rem; */
 }
+
 /* change the link color */
 .navbar-custom .navbar-nav .nav-link {
     color: rgba(255,255,255,.5);
     /* padding: 1rem 1rem; */
 }
+
 /* change the color of active or hovered links */
 .navbar-custom .nav-item.active .nav-link,
 .navbar-custom .nav-item:focus .nav-link,
@@ -47,7 +49,7 @@ nav {
 
 .pagination > li.page-item {
     background-color: transparent;
-    border: 1px solid #4056A1;
+    border: 1px solid #000000;
     color: #4056A1;
     font-size: 0.75rem;
     /* line-height: 1rem; */
@@ -76,21 +78,8 @@ main {
 }
 
 /*
- * Columns
+ * Tables
  */
-
-.column {
-  float: left;
-  padding: 20px;
-}
-
-.left {
-  width: 66.7%
-}
-
-.right {
-  width: 33.3%;
-}
 
 table {
   border-collapse: collapse;
@@ -150,12 +139,21 @@ footer p {
  * Headings
  */
 
-h1, h2, h3, h4 {
+h1, h2 {
     color: #F13C20;
     /* margin-top: 1em; */
     /* margin-bottom: 0.5rem; */
     text-align: left;
+    padding: 5px;
 }
+
+h3, h4 {
+  color: #338E21;
+  /* margin-top: 1em; */
+  /* margin-bottom: 0.5rem; */
+  text-align: left;
+}
+
 
 /*
  * Paragraphs
@@ -164,7 +162,8 @@ h1, h2, h3, h4 {
 p {
     /* color: #8E8D8A; */
     color: #000000;
-    text-align: justify;
+    text-align: left;
+    font-family: "Times New Roman", Times, serif;
 }
 
 /*
@@ -191,6 +190,6 @@ a:active {
 
 a:visited {
     background-color: transparent;
-    color: #8E8D8A;
+    color: #4056A1;
     text-decoration: none;
 }

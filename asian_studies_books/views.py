@@ -35,11 +35,12 @@ class BookDetailView(generic.DetailView):
     context_object_name = 'book'
     template_name = 'asian_studies_books/book_detail.html'
 
-## Note to Anthony: I tried to implement this, but when I did, my filter fields disappeared on the sidebar.
+## I tried to implement this, but when I did, my filter fields disappeared on the sidebar.
 ## I could not figure out why, so I moved on.
 
 # # Taken from Anthony Whyte's heritagesites/views.py:
 # # https://github.com/UMSI-SI664-2018Fall/heritagesites/blob/master/heritagesites/views.py
+
 # class PaginatedFilterView(generic.View):
 #     """
 #     Creates a view mixin, which separates out defaut 'page' keyword and returns the
