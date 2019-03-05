@@ -10,6 +10,16 @@ As I am interested in the humanities, academic libraries, publishing, and creati
 
 The underlying data for this application would be comprised of descriptive metadata for the approximately 350 books and additional data about which institutions worldwide have these books in their holdings. As part of an internship last summer, I gathered the library holdings data using the OCLC’s WorldCat Search API, and I also assisted in putting together, checking, and enriching the existing descriptive metadata records. I have been given permission by Michigan Publishing Services to use this data for my project. The raw data for this project is in the form of multiple JSON files, one containing the descriptive metadata, and another containing the results of API calls and technical details about how those calls were crafted.
 
+## Screenshots
+
+### Application Home Page
+
+![Home page](/static/img/home_page.jpg)
+
+### Book Detail Page Example
+
+![Book Detail Page Example](static/img/book_detail.jpg)
+
 ## Data model
 
 ![Data model](/static/img/data_model.png)
